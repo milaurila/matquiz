@@ -1,0 +1,576 @@
+/* Fonts */
+@font-face {
+  font-family: 'Knockout';
+  src: url(fonts/Knockout-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(fonts/Helvetica-Neue-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Neutra';
+  src: url(fonts/neutra-text-font/NeutraText-Book.otf);
+}
+
+@font-face {
+  font-family: 'Neutra Bold';
+  src: url(fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+/* End fonts */
+
+/* Glow color */
+:root {
+  --glow: rgba(231, 205, 120, .15);
+}
+
+/* Animations */
+@keyframes nav-lift {
+	from {
+		transform: translateY(0);
+	}
+	to {
+    transform: translateY(-10px);
+	}
+}
+
+@keyframes option-hover-bounce {
+	from, to {
+		transform: translateY(0);
+	}
+	50% {
+    transform: translateY(-10px);
+	}
+}
+
+@keyframes option-hover-scale {
+	from, to {
+		transform: scale(1);
+	}
+	50% {
+    transform: scale(1.2);
+	}
+}
+
+@keyframes yay {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes boo {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-5deg); }
+  20% { transform: translate(-3px, 0px) rotate(5deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(5deg); }
+  50% { transform: translate(-1px, 2px) rotate(-5deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-5deg); }
+  80% { transform: translate(-1px, -1px) rotate(5deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-5deg); }
+}
+/* End animations */
+
+/* Allmänt */
+html {
+  font-size: 100%;
+  text-align: center;
+  background-color: #000;
+}
+
+body > header, nav ul li, main, #start, #new-game, input[type="text"], input[type="search"], input[type="submit"], aside, footer {
+  background-color: #0E0E10;
+}
+
+body {
+  width: 90%;
+  margin: 0 auto;
+  font: 1.5rem/1.2 "Neutra";
+  color: #C0CAF5;
+  border-radius: 15px;
+  padding-top: 0.5rem;
+}
+
+/* Namn och slogan */
+body > header {
+  max-width: 30%;
+  border: ridge 6px #E7CD78;
+  margin: 0 auto 1rem;
+  padding: 0.5rem;
+}
+
+h1 {
+  font: bold 4rem/1 "Knockout";
+}
+
+h1 + p {
+  font: 1rem/1 "Helvetica Neue";
+  margin: 0;
+}
+/* End namn och slogan */
+
+main {
+  min-height: 35rem;
+  border: solid 2px black;
+  margin: 0rem 2rem;
+  padding-top: 1rem;
+}
+
+p {
+  max-width: 50rem;
+  margin: 2rem auto;
+}
+
+h2 {
+  font: bold 3rem/1 "Neutra Bold";
+  margin: 2rem auto;
+}
+
+a {
+  color: #C0CAF5;
+}
+/* End allmänt */
+
+/* Nav */
+nav {
+  border-radius: 15px;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin: 1.5rem 2rem 0;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  display: inline-block;
+  flex: 1;
+  margin: 0 0.1rem;
+  transition: 0.5s;
+}
+
+nav ul li:hover {
+  box-shadow: rgba(231, 205, 120, .2) 0 -25px 18px -14px inset,
+    var(--glow) 0 1px 2px,
+    var(--glow) 0 2px 4px,
+    var(--glow) 0 4px 8px,
+    var(--glow) 0 8px 16px,
+    var(--glow) 0 16px 32px;
+}
+
+nav ul li:first-child {
+  border-radius: 15px 0 0 0;
+}
+
+nav ul li:last-child {
+  border-radius: 0 15px 0 0;
+}
+
+nav ul li:hover {
+  cursor: pointer;
+  animation: 0.5s ease-in-out nav-lift forwards;
+}
+
+nav ul li a {
+  display: block;
+  font: italic 1.2rem/1 "Helvetica Neue";
+  color: #C0CAF5;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+nav a:hover, nav a:focus {
+  color: #fff;
+}
+/* End nav */
+
+/* Games allmänt */
+#game1, #game2, #new-game {
+  /* Toggle in js */
+  display: none;
+}
+
+#start, #new-game, input[type="search"], input[type="Submit"], input[type="text"] {
+  font: italic 1.3rem/1 "Helvetica Neue";
+  border-radius: 30px 0;
+  color: #c0caf5;
+  cursor: pointer;
+  padding: 15px;
+  transition: all 250ms;
+  margin: 0.5rem auto 0;
+  outline: none;
+}
+
+#start {
+  margin-top: 5rem;
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+#start:hover, #new-game:hover, #start:focus, #new-game:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="Submit"]:hover {
+  box-shadow: rgba(231, 205, 120, .2) 0 0 5px 5px,
+   var(--glow) 0 0 2px,
+   var(--glow) 0 0 4px,
+   var(--glow) 0 0 8px,
+   var(--glow) 0 0 16px,
+   var(--glow) 0 0 32px;
+  transform: scale(1.05);
+  color: #E7CD78;
+}
+
+#question {
+  font-size: 2rem;
+  margin: 0.5rem auto;
+}
+
+#options {
+  display: flex;
+  justify-content: center;
+}
+
+#result {
+  margin-bottom: 1rem;
+}
+
+#answer, #info {
+  margin: 0 auto;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 2s ease-in;
+}
+
+.show {
+  opacity: 1;
+}
+
+.right {
+  color: green;
+  border: solid green 3px;
+  border-radius: 15px;
+  animation: 1s ease-in-out 1 yay;
+}
+
+.wrong {
+  color: red;
+  border: solid red 3px;
+  border-radius: 15px;
+  animation: boo 0.5s;
+}
+
+.right-info {
+  color: green;
+}
+
+.wrong-info {
+  color: red;
+}
+
+.kolhydrater {
+  color: Plum;
+}
+
+.protein {
+  color: Salmon;
+}
+
+.fett {
+  color: DarkOrange;
+}
+
+.kalorier {
+  color: RoyalBlue;
+}
+/* End games allmänt */
+
+/* Game 1 */
+#game1 img {
+  max-width: 70%;
+  border-radius: 15px;
+  padding-bottom: 0.5rem;
+}
+
+#game1 img:hover {
+  box-shadow: var(--glow) 0 0 20px 10px;
+}
+
+#game1 #options div {
+  margin: 0 2rem 2rem;
+  padding: 0.5rem 0;
+}
+
+.active:hover {
+  cursor: pointer;
+  animation: 1s ease-in-out infinite option-hover-bounce;
+}
+
+.minmax {
+  font-style: italic;
+}
+/* End Game 1 */
+
+/* Game 2 */
+#food {
+  margin-bottom: 1rem;
+}
+
+#food img {
+  border-radius: 15px;
+  max-height: 14rem;
+}
+
+#game2 #options div {
+  font-size: 2rem;
+  margin: 0 2rem 0.5rem;
+  padding: 1rem;
+  border-radius: 9999rem;
+}
+
+#game2 #options div:hover {
+  box-shadow: var(--glow) 0 0 20px 10px;
+}
+
+.active-two:hover {
+  cursor: pointer;
+  animation: 1s ease-in-out infinite option-hover-scale;
+}
+/* End game 2 */
+
+/* Search page */
+input[type="search"] {
+  width: 40%;
+  margin: 2rem auto;
+}
+
+table {
+  margin: 1rem auto 0;
+}
+
+th, td {
+  padding: 0.5rem;
+}
+
+th {
+  text-align: left;
+  font-style: italic;
+  padding-right: 30px;
+  border-right: solid 1px #E7CD78;
+}
+
+td {
+  text-align: right;
+  padding-left: 30px;
+}
+
+tr {
+  border-bottom: solid 1px #E7CD78;
+}
+
+tr:last-child {
+  border: none;
+}
+/* End search page */
+
+/* Info page */
+main header p:nth-of-type(2) {
+  font-size: 1rem;
+}
+
+article {
+  margin: 1rem;
+}
+
+article p {
+  text-align: left;
+}
+
+h3 {
+  font: 2rem/1 "Neutra Bold";
+  margin: 2rem auto;
+}
+
+article img {
+  display: block;
+  margin: 0 auto;
+}
+
+article header p {
+  font: 1.2rem/1 "Neutra Bold";
+}
+
+aside {
+  margin: 0 2rem;
+  padding: 1rem 0;
+  border: solid 2px black;
+  border-top: none;
+}
+
+aside h2 {
+  margin: 1rem;
+}
+
+legend {
+  margin: 1rem auto 0;
+}
+
+input[type="radio"] {
+  accent-color: #E7CD78;
+}
+
+input[type="radio"]:checked + label {
+  padding: 0.2rem;
+  border-radius: 10px;
+  box-shadow: rgba(231, 205, 120, .5) 0 0 20px 10px;
+}
+
+input[type="text"] {
+  margin-left: 1rem;
+}
+/* End info page */
+
+/* Footer */
+footer {
+  font: 0.8rem/1.375 "Helvetica";
+  border: solid 2px black;
+  border-top: 0px;
+  border-radius: 0 0 15px 15px;
+  margin: 0 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+address {
+  margin: 1rem 2rem;
+}
+
+footer p {
+  display: inline;
+  margin: 1rem 2rem;
+}
+/* End footer */
+
+/* Breakpoints */
+@media(max-width: 774px) {
+  /* Namn och slogan */
+  body > header {
+    min-width: 80%;
+    border: ridge 6px #E7CD78;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  h1 + p {
+    display: none;
+  }
+  /* End namn och slogan */
+
+  /* Footer */
+  address, footer p {
+    float: none;
+    margin: 0.5rem 2rem;
+  }
+  /* End footer */
+}
+
+@media(max-width: 530px) {
+  body, main, nav, footer, aside {
+    width: 100%;
+    margin: 0;
+  }
+
+  h2 + p {
+    margin: 1rem;
+  }
+
+  main {
+    padding-bottom: 2rem;
+  }
+
+  input[type="search"], input[type="Submit"], input[type="text"] {
+    font-size: 1rem;
+    border-radius: 0;
+    margin: 1rem auto;
+    width: 80%;
+  }
+
+  #game2 #options div {
+    font-size: 1.5rem;
+    margin: 1rem auto;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  /* Nav */
+  nav {
+    border-radius: 0;
+    letter-spacing: 0rem;
+    margin: 0;
+  }
+
+  nav ul {
+    display: block;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 0.5rem auto;
+    padding: 1rem;
+  }
+
+  nav ul li:first-child {
+    border-radius: 0;
+  }
+
+  nav ul li:last-child {
+    border-radius: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    font: italic 1rem/1 "Helvetica Neue";
+    padding: 0;
+  }
+  /* End nav */
+
+  #options {
+    display: block;
+  }
+
+  /* Info page */
+  section h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  article {
+    margin: 1rem;
+  }
+
+  article p {
+    font-size: 1.3rem;
+  }
+  /* End info page */
+
+  footer {
+    display: inline-block;
+  }
+
+  address, footer p {
+    display: block;
+  }
+}
