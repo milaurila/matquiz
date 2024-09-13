@@ -3,7 +3,7 @@ import {random} from '../pages/game-utils.js'
 
 const api = 'https://api.edamam.com/api/food-database/v2/parser?q=&'
 const app_id = '8367893f'
-const app_key = '9e320980390f411e7b3cb57f1843b320'
+const app_key = ''
 const queries = new URLSearchParams({
   app_id : app_id,
   app_key : app_key,
